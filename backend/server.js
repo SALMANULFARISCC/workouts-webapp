@@ -9,6 +9,15 @@ const app = express()
 
 // routes
 
+
+// middleware
+app.use(express.json())
+
+app.use((req, res, next) => {
+  console.log(req.path, req.method)
+  next()
+})
+
 app.use('/api/workouts',workoutRoutes)
 // app.get('/',(req,res)=>{
 //     res.json({mssg: 'hello eoll'})
