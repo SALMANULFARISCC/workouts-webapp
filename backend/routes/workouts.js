@@ -9,6 +9,11 @@ router
     .get((req,res)=>{
         res.json({mssg: "get all data"})
     })
+router
+    .route('/:id')
+    .get((req,res)=>{
+        res.json({mssg: "get single data"})
+    })
 
 
 module.exports = router
