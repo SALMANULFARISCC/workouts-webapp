@@ -2,21 +2,19 @@ const { Router } = require("express")
 
 
 const express = require('express')
-const {CreateWorkout} = require('../controllers/workoutController')
+const {getWorkouts,getWorkout,createWorkout,deleteWorkout,updateWorkout} = require('../controllers/workoutController')
 
 const router = express.Router()
 
 router
     .route('/')
-    .get((req,res)=>{
-        res.json({mssg: "get all data"})
-    })
-    .post(CreateWorkout)
+    .get(getWorkouts)
+    .post(createWorkout)
 router
     .route('/:id')
-    .get((req,res)=>{
-        res.json({mssg: "get single data"})
-    })
+    .get(getWorkout)
+    .delete(deleteWorkout)
+    .patch(updateWorkout)
 
-
+   
 module.exports = router
